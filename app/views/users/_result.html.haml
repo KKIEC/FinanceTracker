@@ -1,0 +1,14 @@
+%div.results-block
+  = render 'layouts/messages'
+
+- if @stock
+  %div.card.card-header.results-block
+    %strong
+      Symbol:
+    = @stock.ticker
+    %strong
+      Name:
+    = @stock.name
+    %strong
+      Price:
+    = @stock.last_price

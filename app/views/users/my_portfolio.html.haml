@@ -4,7 +4,7 @@
 %div.search-area
   %h3
     Search Stocks
-  = form_tag search_stock_path, method: :get do
+  = form_tag search_stock_path, remote: true, method: :get do
     %div.form-group.row
       %div.col-sm-9.no-right-padding
         = text_field_tag :stock, params[:stock],
@@ -15,14 +15,4 @@
         = button_tag type: :submit, class: 'btn btn-success' do
           = fa_icon 'search 2x'
 
-- if @stock
-  %div.card.card-header.results-block
-    %strong
-      Symbol:
-    = @stock.ticker
-    %strong
-      Name:
-    = @stock.name
-    %strong
-      Price:
-    = @stock.last_price
+%div{ id: "results" }
