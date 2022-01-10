@@ -1,0 +1,19 @@
+%div.row
+  %div.col-9
+    %table.table.table-bordered.table-hover
+      %thead
+        %tr
+          %th{ scope: "col"} Ticker
+          %th{ scope: "col"} Name
+          %th{ scope: "col"} Price
+          %th{ scope: "col"} Actions
+      %tbody
+        - @tracked_stocks.each do |stock|
+          %tr
+            %th{ scope: "row" }
+              = stock.ticker
+            %td
+              = stock.name
+            %td
+              = stock.last_price
+            %td placeholder
