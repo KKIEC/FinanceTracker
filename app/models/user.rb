@@ -11,6 +11,7 @@ class User < ApplicationRecord
   def stock_already_tracked?(ticker_symbol)
     stock = Stock.check_db(ticker_symbol)
     return false unless stock
+
     stocks.where(id: stock.id).exists?
   end
 
@@ -24,13 +25,16 @@ class User < ApplicationRecord
 
   def full_name
     return "#{first_name} #{last_name}" if first_name || last_name
+
     'Anonymous'
   end
 
   def self.search(param)
     param.strip!
-    to_send_back = (first_name_matches(param) + last_name_matches(param) + email_matches(param)).uniq
+    to_send_back = (first_name_matches(param) +
+    last_name_matches(param) + email_matches(param)).uniq
     return nil unless to_send_back
+
     to_send_back
   end
 
@@ -51,10 +55,10 @@ class User < ApplicationRecord
   end
 
   def except_current_user(users)
-    users.reject { |user| user.id == self.id }
+    users.reject { |user| user.id == id }
   end
 
   def not_friends_with?(id_of_friend)
-    !self.friends.where(id: id_of_friend).exists?
+    !friends.where(id: id_of_friend).exists?
   end
 end

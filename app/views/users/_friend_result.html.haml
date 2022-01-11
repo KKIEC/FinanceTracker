@@ -1,7 +1,7 @@
 %div.results-block
   = render 'layouts/messages'
 
-- if @friends
+- if @friends && !@friends.empty?
   %div.card.card-header.results-block
     %table.col-md-12
       %tbody
