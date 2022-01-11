@@ -1,0 +1,23 @@
+%div.results-block
+  = render 'layouts/messages'
+
+- if @friends
+  %div.card.card-header.results-block
+    %table.col-md-12
+      %tbody
+        - @friends.each do |friend|
+          %tr
+            %td
+              %strong
+                Name:
+              = friend.full_name
+            %td
+              %strong
+                Email:
+              = friend.email
+            %td
+              %strong
+                Actions:
+              = link_to 'View profile', '#', class: 'btn btn-sm btn-success'
+              = link_to 'Follow friend?', '#',
+              class: 'btn btn-sm btn-success', method: :post
