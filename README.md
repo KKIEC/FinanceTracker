@@ -1,24 +1,31 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+**Finance tracker application template**
 
-Things you may want to cover:
+It will be finished and deployed.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+It contains following features:
+  - Rails and Ruby versions:
+    - rails 6.1.4
+    - ruby 3.0.2
+  - Database:
+    - postgresql in production
+    - sqlite3 in development and test
+    - relational (users, stocks, friendships)
+  - Authentication:
+    - devise
+  - External API:
+    - IEX Cloud (iex-ruby-client gem)
+  - Styling:
+    - bootstrap classes
+    - font-awesome-rails icons
+    - erb and haml views
+    - erb js views
+  - Code quality:
+    - rubocop-rails
+  - Testing:
+    - Rspec (models + requests will be implemented)
+    - factory_bot_rails (will be implemented)
+    - byebug
+  - JS (erb.js in views):
+    - for AJAX search service (to be finished)
